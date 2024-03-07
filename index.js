@@ -4,7 +4,8 @@
 import express from "express";
 import { productsRoute } from "./routes/products.js";
 import { MongoClient } from "mongodb";
-import * as dotenv from 'dotenv'     //.env
+import * as dotenv from 'dotenv' //.env
+import cors from "cors"    // allowing backend to share cross origin resource sharing to frontend
 dotenv.config()
 export const app = express()
 
@@ -14,6 +15,7 @@ export const app = express()
 // console.log(process.env.MONGO_URL)
 
 app.use(express.json());  // express.json - it's a middleware used to tell that the post object is a JSON in the body
+app.use(cors())
 //req => What we send
 //res => What we receive
 
